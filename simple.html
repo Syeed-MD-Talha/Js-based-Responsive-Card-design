@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <style>
+        .item1{background-image: url('abc.png');}
+        .item2{background-image: url('image2.png');}
+        .item3{background-image: url('image4.png');}
+        .item4{background-image: url('image3.png');}
+        .card {
+            height: 521px;
+            width: 292px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            border-radius: 12px;
+            margin: 0px;padding: 0px;
+          }
+      
+          .images {
+            display: flex;
+            margin-left: 10px;
+            margin-bottom: 10px;
+          }
+          .images img {
+            margin-right: 10px;
+          }
+          .container{
+            background-color: white;
+            width: 1240px;
+            
+            margin: auto;
+            padding: 20px 70px;
+            display: grid;
+            grid-template-columns: repeat(4,auto);
+            gap: 20px;
+            align-items: center;
+        }
+        
+        @media (max-width: 1400px) {
+            .container {
+                width: 1000px;
+                grid-template-columns: repeat(3, auto);
+            }
+        }
+        @media (max-width: 1000px) {
+            .container {
+                width: 600px;
+                grid-template-columns: repeat(2, auto);
+            }
+        }
+        @media (max-width: 500px) {
+            .container {
+                width: 100%;
+                grid-template-columns: repeat(1, auto);
+            }
+        }
+
+        
+    </style>
+</head>
+<body style="background-color: black;">
+     <div class="container">
+        <!-- <div class="card item1">
+            <div class="images">
+               <a href="https://benhyh.github.io/Contact-Form/" target="_blank"><img src="Group 6.png" alt=""></a>
+               <a href="abc.png" download=""><img src="Group 4.png" alt=""></a>
+            </div>
+        </div> -->
+
+    
+       
+     </div>
+
+     <script>
+         function Images(link1,link2){
+
+             
+             // link for left image
+             const LinkDiv1=document.createElement('a');
+             LinkDiv1.href=link1;
+             LinkDiv1.target='_blank';
+
+             const img1=document.createElement('img');
+             img1.src='left.png';
+             img1.alt='';
+             LinkDiv1.appendChild(img1);
+
+
+             //....................... Link for right image
+            const LinkDiv2=document.createElement('a');
+             LinkDiv2.href=link2;
+             LinkDiv2.download='';
+
+             const img2=document.createElement('img');
+             img2.src='right.png';
+             img2.alt='';
+             LinkDiv2.appendChild(img2);
+
+            
+             // Append the links to the images div
+             imagesDiv = document.createElement('div');
+             imagesDiv.className='images';
+             imagesDiv.appendChild(LinkDiv1);
+             imagesDiv.appendChild(LinkDiv2);
+             
+             return imagesDiv;
+
+         }
+         function CreateCard(Card_image,Url){
+               const Container=document.querySelector('.container');
+               const newDiv=document.createElement('div');
+               newDiv.className='card'
+               newDiv.style.backgroundImage='url("'+Card_image+'")';
+
+               newDiv.append(Images(Url,Card_image))
+               Container.appendChild(newDiv)
+         }
+
+         Cards=[
+             ['image1.png','https://www.youtube.com/'],
+             ['image2.png','https://www.youtube.com/'],
+             ['image3.png','https://www.youtube.com/'],
+             ['image4.png','https://www.youtube.com/'],
+
+             ['image1.png','https://www.youtube.com/'],
+             ['image2.png','https://www.youtube.com/'],
+             ['image3.png','https://www.youtube.com/'],
+             ['image4.png','https://www.youtube.com/'],
+
+             ['image1.png','https://www.youtube.com/'],
+             ['image2.png','https://www.youtube.com/'],
+             ['image3.png','https://www.youtube.com/'],
+             ['image4.png','https://www.youtube.com/'],
+
+             ['image4.png','https://www.youtube.com/'],
+
+             
+
+
+
+             
+        ];
+
+         Cards.forEach(([Card_image,Url])=>{
+              CreateCard(Card_image,Url);
+              console.log(Card_image);
+         }); 
+
+         
+     </script>
+</body>
+</html>
